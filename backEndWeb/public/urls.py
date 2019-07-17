@@ -19,5 +19,6 @@ urlpatterns = [
     path('panels', views.panels, name='panels'),
     path('tables', views.tables, name='tables'),
     path('typography', views.typography, name='typography'),
+    path('js-text', views.jsText, name='js-text'),
 
 ]

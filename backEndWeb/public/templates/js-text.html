@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <script>
+        function myFunction() {
+            document.getElementById("task1").innerHTML = "段落被更改。";
+        }
+        function calculate() {
+            document.getElementById("task1").innerHTML = 5 + 6;
+        }
+        function cal_para() {
+            var x,y,z;
+            x = 11;
+            y = 22;
+            z = x + y;
+            document.getElementById("task1").innerHTML = z;
+        }
+        function myFunc(p1, p2) {
+            return p1 + p2;
+        }
+        function toCelsius(fahrenheit) {
+            return (5/9) * (fahrenheit-32);
+        }
+        function showCelsius() {
+            document.getElementById("task2").innerHTML = toCelsius(42)+"℃";
+        }
+    </script>
+</head>
+
+
+<body>
+    <h1> 练习JAVASCRIPT </h1>
+
+    <P id="task1"> examples 1 </P>
+    <script>
+        var result = myFunc(4,6);
+        var car = {
+                    type:"porsche", 
+                    model:"911", 
+                    color:"white"
+                    };
+        var person = {
+                        firstName: "Bill",
+                        lastName : "Gates",
+                        id       : 678,
+                        fullName : function() {
+                            return this.firstName + " " + this.lastName;
+                    }
+                };
+        document.write(person.fullName());
+        document.write(5 + 6);
+        document.write(result);
+    </script>
+    <br />
+    <p id="task2">42F</p>
+    <br />
+    <button type="button" onclick='document.getElementById("task1").innerHTML = "example1",
+                                document.getElementById("task1").style.color = "black",
+                                document.getElementById("task1").style.fontSize = "20px"'>恢复</button>
+    <br />
+    <button type="button" onclick='document.getElementById("task1").innerHTML = "Hello JavaScript!"'>改变文字内容</button>
+    <button type="button" onclick='document.getElementById("task1").style.color = "blue"'>变蓝</button>
+    <button type="button" onclick='document.getElementById("task1").style.fontSize = "30px"'>变大</button>
+    <br />
+    <button type="button" onclick='myFunction()'>改变文字内容</button>
+    <button type="button" onclick='calculate()'>计算</button>
+    <br />
+    <button type="button" onclick='window.alert(5 + 6)'>浏览器提示</button>
+    <button type="button" onclick='console.log(5 + 6)'>监视器提示</button>
+    <br />
+    <button type="button" onclick='cal_para()'>输出结果</button>
+    <br />
+    <button type="button" onclick='showCelsius()'>转摄氏度</button>
+
+</body>
+
+
+
+
+
+
+

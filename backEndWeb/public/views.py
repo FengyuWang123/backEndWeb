@@ -47,3 +47,7 @@ def tables(request):
 def typography(request):
 	context = {}
 	return render(request, '../templates/typography.html', context)
+
+def jsText(request):
+	context = {}
+	return render(request, '../templates/js-text.html', context)
