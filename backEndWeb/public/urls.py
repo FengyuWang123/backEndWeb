@@ -7,7 +7,8 @@ from . import views
 app_name = 'public'
 
 urlpatterns = [
-	path('', views.index, name='index'),
+    # templates
+	path('', views.mainPage, name='mainPage'),
     path('index', views.index, name='index'),
     path('charts', views.charts, name='charts'),
     path('elements', views.elements, name='elements'),
@@ -20,4 +21,11 @@ urlpatterns = [
     path('tables', views.tables, name='tables'),
     path('typography', views.typography, name='typography'),
 
+    # work on
+    path('mainPage', views.mainPage, name='mainPage'),
+    path('member1', views.member1, name='member1'),
+    path('member2', views.member2, name='member2'),
+    path('member3', views.member3, name='member3'),
+    path('equipManage', views.equipManage, name='equipManage'),
+    path('systemManage', views.systemManage, name='systemManage'),
 ]

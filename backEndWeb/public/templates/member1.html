@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="{% url 'public:mainPage' %}" class=""><i class="lnr lnr-home"></i> <span>首页</span></a></li>
+                    <li>
+                        <a href="#subPages" data-toggle="collapse" class="active"><i class="lnr lnr-user"></i> <span>人员管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages" class="collapse in">
+                            <ul class="nav">
+                                <li><a href="{% url 'public:member1' %}" class="active">一级人员</a></li>
+                                <li><a href="{% url 'public:member2' %}" class="">二级人员</a></li>
+                                <li><a href="{% url 'public:member3' %}" class="">三级人员</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'public:elements' %}" class=""><i class="lnr lnr-code"></i> <span>备用测试</span></a></li>
+                    <li><a href="{% url 'public:equipManage' %}" class=""><i class="lnr lnr-chart-bars"></i> <span>设备管理</span></a></li>
+                    <li><a href="{% url 'public:systemManage' %}" class=""><i class="lnr lnr-cog"></i> <span>系统设置</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="">
+                        <!-- RECENT PURCHASES -->
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">一级人员管理</h3>
+                                <div class="right">
+                                    
+                                </div>
+                            </div>
+                            <hr style="margin: 0px; margin-bottom: 10px"/>
+                            <div class="panel-body">
+                                    <div class="row" style="margin-bottom: 10px">
+                                        <form method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 "style="float:left;">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text">
+                                                    <span class="input-group-btn  ">
+                                                        <button class="btn btn-primary"
+                                                                type="button">搜索</button></span>
+                                            </div>
+                                        </div>
+                                        </form>
+                                        <div class="col-md-2" style="width:200px; float:right; right:5%">
+                                            <span class="input-group-btn">
+                                                <a href="#" class="">
+                                                    <button class="btn btn-primary"
+                                                            type="button" data-toggle="modal"
+                                                            data-target="" >添加人员</button></a></span>
+                                            <span class="input-group-btn">
+                                                <a href="#" class="">
+                                                    <button class="btn btn-danger"
+                                                            type="button">删除所选</button></a></span>
+                                            </div>
+    
+                                    </div>
+                                </div>
+                            <div class="panel-body no-padding">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr><th>
+                                                <input type="checkbox">
+                                            </th>
+                                            <th>序号</th>
+                                            <th>姓名</th>
+                                            <th>手机号</th>
+                                            <th>修改时间</th>
+                                            <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for data in member1data %}
+                                        <tr>
+                                            <td class="col-md-1" style="vertical-align: middle;"><input type="checkbox"></td>
+                                            <td class="col-md-1" style="vertical-align: middle;">{{ forloop.counter }}</td>
+                                            <td class="col-md-2" style="vertical-align: middle;">{{ data.name }}</td>
+                                            <td class="col-md-2" style="vertical-align: middle;">{{ data.phone }}</td>
+                                            <td class="col-md-2" style="vertical-align: middle;">{{ data.time_stamp }}</td>
+                                            <td class="col-md-2" style="vertical-align: middle;">{{ data.get_state_display }}</td>
+                                            <td><button type="button" class="btn btn-primary btn-xs">修改</button><button type="button" class="btn btn-danger btn-xs">删除</button></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div id="pages" class="text-center" >
+                                        <nav>
+                                            <ul class="pagination">
+                                                <li class="step-links">
+                                                {% if members.has_previous %}
+                                                    <a class='active' href="?page={{ books.previous_page_number }}">上一页</a>
+                                                {% endif %}
+                                
+                                                <span class="current">
+                                                    第 {{ members.number }} 页，共 {{ members.paginator.num_pages }} 页</span>
+                                
+                                                {% if members.has_next %}
+                                                    <a class='active' href="?page={{ books.next_page_number }}">下一页</a>
+                                                {% endif %}
+                                                </li></ul></nav></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END RECENT PURCHASES -->
+                    </div>
+                
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+            
+        </div>
+    </footer>
+</div>
+<!-- END WRAPPER -->
+{% endblock %}

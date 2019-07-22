@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="{% url 'public:mainPage' %}" class=""><i class="lnr lnr-home"></i> <span>首页</span></a></li>
+                    <li>
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-user"></i> <span>人员管理</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="{% url 'public:member1' %}" class="">一级人员</a></li>
+                                <li><a href="{% url 'public:member2' %}" class="">二级人员</a></li>
+                                <li><a href="{% url 'public:member3' %}" class="">三级人员</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'public:elements' %}" class=""><i class="lnr lnr-code"></i> <span>备用测试</span></a></li>
+                    <li><a href="{% url 'public:equipManage' %}" class=""><i class="lnr lnr-chart-bars"></i> <span>设备管理</span></a></li>
+                    <li><a href="{% url 'public:systemManage' %}" class="active"><i class="lnr lnr-cog"></i> <span>系统设置</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="container-fluid">
+               
+                
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+            
+        </div>
+    </footer>
+</div>
+<!-- END WRAPPER -->
+{% endblock %}
