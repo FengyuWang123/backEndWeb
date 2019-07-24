@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage, InvalidPage
+from django.core import serializers
+
 
 from public.forms import *
 from public.models import *
 from public.helper import *
+
+import json
 
 # templates
 def index(request):
@@ -109,30 +113,17 @@ def member2(request):
 	return render(request, '../templates/member2.html', {'members': members,'member1data':member1_data})
 
 def member3(request):
-	context = {}
 	# sql = """select * from member1model"""
 	# member1_data = RunSQL(sql)
 	member1_data = Member1Model.objects.all()
-	# 将数据按照规定每页显示 10 条, 进行分割
-	paginator = Paginator(member1_data, 10)
+	# # 将数据按照规定每页显示 10 条, 进行分割
+	# paginator = Paginator(member1_data, 10)
 	
-	if request.method == "GET":
-		# 获取 url 后面的 page 参数的值, 首页不显示 page 参数, 默认值是 1
-		page = request.GET.get('page')
-		try:
-			members = paginator.page(page)
-		# todo: 注意捕获异常
-		except PageNotAnInteger:
-			# 如果请求的页数不是整数, 返回第一页。
-			members = paginator.page(1)
-		except InvalidPage:
-			# 如果请求的页数不存在, 重定向页面
-			return HttpResponse('找不到页面的内容')
-		except EmptyPage:
-			# 如果请求的页数不在合法的页数范围内，返回结果的最后一页。
-			members = paginator.page(paginator.num_pages)
+	data = {}
+	data['list'] = json.loads(serializers.serialize("json", member1_data))
+	print(data)
 	
-	return render(request, '../templates/member3.html', {'members': members,'member1data':member1_data})
+	return render(request, '../templates/member3.html', {'member1data':data})
 
 def equipManage(request):
 	context = {}
