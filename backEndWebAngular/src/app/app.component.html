@@ -68,7 +68,7 @@
         <li><a href="#/index" [ngClass]="{active: nav_part === 'index'}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
         <li><a href="#/elements" [ngClass]="{active: nav_part === 'elements'}"><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
         <li><a href="#/charts" [ngClass]="{active: nav_part === 'charts'}"><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
-        <li><a href="#/panels" [ngClass]="{active: nav_part === 'panels'}"><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
+        <!-- <li><a href="#/panels" [ngClass]="{active: nav_part === 'panels'}"><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
         <li><a href="#/notifications" [ngClass]="{active: nav_part === 'notifications'}"><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
         <li>
           <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
@@ -82,19 +82,21 @@
         </li>
         <li><a href="#/tables" [ngClass]="{active: nav_part === 'tables'}"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
         <li><a href="#/typography" [ngClass]="{active: nav_part === 'typography'}"><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-        <li><a href="#/icons" [ngClass]="{active: nav_part === 'icons'}"><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
+        <li><a href="#/icons" [ngClass]="{active: nav_part === 'icons'}"><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li> -->
       </ul>
     </nav>
   </div>
 </div>
 <!-- END LEFT SIDEBAR -->
-<app-index *ngIf = "nav_part === 'index'"></app-index>
+<!-- <app-index *ngIf = "nav_part === 'index'"></app-index>
 <app-elements *ngIf = "nav_part === 'elements'"></app-elements>
 <app-charts *ngIf = "nav_part === 'charts'"></app-charts>
 <app-icons *ngIf = "nav_part === 'icons'"></app-icons>
 <app-notifications *ngIf = "nav_part === 'notifications'"></app-notifications>
 <app-panels *ngIf = "nav_part === 'panels'"></app-panels>
 <app-tables *ngIf = "nav_part === 'tables'"></app-tables>
-<app-typography *ngIf = "nav_part === 'typography'"></app-typography>
+<app-typography *ngIf = "nav_part === 'typography'"></app-typography> -->
 <router-outlet></router-outlet>
+
+
 

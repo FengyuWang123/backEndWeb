@@ -11,6 +11,7 @@ import { TablesComponent } from './tables/tables.component';
 import { TypographyComponent } from './typography/typography.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { IconsComponent } from './icons/icons.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { IconsComponent } from './icons/icons.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
